@@ -1,0 +1,18 @@
+{
+  "name": "youtube-lyrics",
+  "version": "0.9.0",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  },
+  "scripts": {
+    "dev": "parcel src/ts/content/content.ts src/ts/background/background.ts",
+    "fbuild": "parcel build src/ts/content/content.ts src/ts/background/background.ts && python tools/packaging.py firefox",
+    "cbuild": "parcel build src/ts/content/content.ts src/ts/background/background.ts && python tools/packaging.py chrome",
+    "fbuildns": "parcel build src/ts/content/content.ts src/ts/background/background.ts --no-source-maps && python tools/packaging.py firefox",
+    "cbuildns": "parcel build src/ts/content/content.ts src/ts/background/background.ts --no-source-maps && python tools/packaging.py chrome",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

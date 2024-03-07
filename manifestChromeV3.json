@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "YoutubeLyrics",
+    "version": "0.9",
+  
+    "description": "Adds Lyrics To Youtube.",
+  
+    "background": {
+      "service_worker":
+        "dist/background/background.js"
+    },
+    
+    "content_scripts": [
+      {
+        "matches": ["*://*.youtube.com/*"],
+        "js": ["dist/content/content.js"],
+        "css": ["src/css/styles.css"]
+      }
+    ],
+
+    "host_permissions": [
+      "*://genius.com/*",
+      "*://*.letssingit.com/*",
+      "*://*.songlyrics.com/*"
+    ]
+}  
