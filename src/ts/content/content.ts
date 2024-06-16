@@ -11,32 +11,41 @@ let descriptionExpanded: boolean = false;
 function filterTitle(title: string): string {
     title = title.toLowerCase();
 
-    const forbidden: { [key: string]: string} = {"[": "]", "(": ")"};
+    const forbiddenBracketedContent: { [key: string]: string} = {"[": "]", "(": ")"};
+    const forbiddenCharacters: string[] = ["&", "|"];
     let foundKey: string | null = null;
     let firstIndex: number = 0;
+    let prevTitleLength = 0;
     for (let i = 0; i < title.length; i++) {
    		let c = title[i];
-    	if (foundKey !== null) {
-      	if (c === forbidden[foundKey]) {
-          title = title.slice(0, firstIndex) + title.slice(i + 1);
-          foundKey = null;
-        }
-      }
-    	for (const key of Object.keys(forbidden)) {
-      	if (c === key) {
-        	if (foundKey !== null) {
-          	title = title.slice(firstIndex + 1);
+
+        if (forbiddenCharacters.includes(c)) {
+            title = title.slice(0, i) + title.slice(i + 1);
             i--;
-          }
-          foundKey = key;
-          firstIndex = i;
-          break;
+            continue;
+        }
+        
+    	if (foundKey !== null) {
+            if (c === forbiddenBracketedContent[foundKey]) {
+                prevTitleLength = title.length;
+                title = title.slice(0, firstIndex) + title.slice(i + 1);
+                i -= prevTitleLength - title.length;
+                foundKey = null;
+            }
+            continue;
+       }
+       
+       	for (const key of Object.keys(forbiddenBracketedContent)) {
+            if (c === key) {
+                foundKey = key;
+                firstIndex = i;
+                break;
+            }
         }
       }
-    }
 
     title = title.split("ft.")[0]
-    
+
     return encodeURI(title);
 }
 
