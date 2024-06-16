@@ -3,7 +3,8 @@
   "version": "0.9.0",
   "description": "",
   "devDependencies": {
-    "parcel": "^2.12.0"
+    "parcel": "^2.12.0",
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "dev": "parcel src/ts/content/content.ts src/ts/background/background.ts",
