@@ -47,6 +47,7 @@ def main():
         os.remove(output)
 
     os.remove("manifest.json")
+    shutil.rmtree("dist")
 
 if __name__ == "__main__":
     main()
