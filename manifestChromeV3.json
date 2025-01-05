@@ -7,13 +7,13 @@
   
     "background": {
       "service_worker":
-        "dist/background/background.js"
+        "dist/background.js"
     },
     
     "content_scripts": [
       {
         "matches": ["*://*.youtube.com/*"],
-        "js": ["dist/content/content.js"],
+        "js": ["dist/content.js"],
         "css": ["src/css/styles.css"]
       }
     ],

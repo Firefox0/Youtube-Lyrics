@@ -1,5 +1,5 @@
-import { browserAPI } from "../common/global";
-import * as Request from "../common/request";
+import { browserAPI } from "./common/global";
+import * as Request from "./common/request";
 
 browserAPI.runtime.onMessage.addListener((message: any, sender: any, sendResponse: any) => {
     switch (message["action"]) {

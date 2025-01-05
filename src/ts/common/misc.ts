@@ -1,4 +1,4 @@
-import * as Messenger from "../messenger/messenger";
+import * as Messenger from "../messenger";
 import * as DomParser from "./domParser";
 
 export async function urlToDom(url: string): Promise<Document | null> {

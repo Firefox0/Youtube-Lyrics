@@ -1,5 +1,5 @@
-import { LyricsInterface } from "../interface/lyricsInterface";
-import * as Messenger from "../messenger/messenger";
+import { LyricsInterface } from "../lyricsInterface";
+import * as Messenger from "../messenger";
 import * as DomParser from "../common/domParser";
 import * as Misc from "../common/misc";
 

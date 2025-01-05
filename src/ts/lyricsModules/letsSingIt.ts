@@ -1,4 +1,4 @@
-import { LyricsInterface } from "../interface/lyricsInterface";
+import { LyricsInterface } from "../lyricsInterface";
 import * as Misc from "../common/misc";
 
 function getTitle(dom: Document): string | null {

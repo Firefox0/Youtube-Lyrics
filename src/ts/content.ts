@@ -1,7 +1,7 @@
-import * as UI from "../dom/ui";
-import * as Yt from "../dom/ytDom";
-import * as Storage from "../storage/storage";
-import * as LyricsModules from "../lyricsModules/lyricsModules";
+import * as UI from "./dom/ui";
+import * as Yt from "./dom/ytDom";
+import * as Storage from "./storage";
+import * as LyricsModules from "./lyricsModules/lyricsModules";
 
 let previousTitle: string = "";
 let lyricsPosition: boolean = false;

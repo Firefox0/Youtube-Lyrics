@@ -1,4 +1,4 @@
-import * as YtLyrics from "../content/content";
+import * as YtLyrics from "../content";
 
 let descriptionExpand: HTMLElement | null = null;
 

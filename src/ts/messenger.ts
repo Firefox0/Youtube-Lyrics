@@ -1,4 +1,4 @@
-import { browserAPI } from "../common/global";
+import { browserAPI } from "./common/global";
 
 export async function urlToJson(url: string): Promise<any | null> {
     let response: any = await browserAPI.runtime.sendMessage({"action": "json", "arg": url});
