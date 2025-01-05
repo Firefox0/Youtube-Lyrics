@@ -8,7 +8,13 @@ function getTitle(dom: Document): string | null {
 }
 
 function parse(dom: Document): string | null {
-    const lyrics: string = dom.querySelector("p")?.innerText ?? "";
+    let lyrics: string = (dom.querySelector("[class^='Lyrics-sc-']") as HTMLElement).innerHTML.replaceAll("<br>", "\n");
+
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = lyrics;
+
+    lyrics = tempDiv.textContent || "";
+    
     // Genius is sometimes changing the HTML.
     // The lyrics needs to be scraped with a different algorithm.
     // Output of lyrics when the HTML changes is "Produced by" only.
@@ -92,6 +98,5 @@ export class Genius implements LyricsInterface {
         }
     
         return null;
-
     }
 }
