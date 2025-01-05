@@ -89,10 +89,6 @@ export class Genius implements LyricsInterface {
         }
 
         lyrics = parseAlt(dom);
-        if (lyrics === "") {
-            return {"title": title, "url": url, "lyrics": "Instrumental"}
-        }
-
         if (lyrics !== null) {
             return {"title": title, "url": url, "lyrics": lyrics};
         }
