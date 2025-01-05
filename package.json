@@ -1,6 +1,6 @@
 {
   "name": "youtube-lyrics",
-  "version": "0.9.0",
+  "version": "1.0.3",
   "description": "",
   "devDependencies": {
     "parcel": "^2.13.3",
