@@ -8,13 +8,12 @@ function getTitle(dom: Document): string | null {
 }
 
 function parse(dom: Document): string | null {
-    let lyrics: string = (dom.querySelector("[class^='Lyrics-sc-']") as HTMLElement).innerHTML.replaceAll("<br>", "\n");
+    let selectedLyrics: string = (dom.querySelector("[class^='Lyrics-sc-']") as HTMLElement).innerHTML;
 
-    const tempDiv = document.createElement("div");
-    tempDiv.innerHTML = lyrics;
-
-    lyrics = tempDiv.textContent || "";
+    let sanitizedLyrics = selectedLyrics.replace(/<(?!br\s*\/?)[^>]+>/gi, "");
     
+    let lyrics = sanitizedLyrics.replace(/<br\s*\/?>/gi, "\n");
+
     // Genius is sometimes changing the HTML.
     // The lyrics needs to be scraped with a different algorithm.
     // Output of lyrics when the HTML changes is "Produced by" only.
