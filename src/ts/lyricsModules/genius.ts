@@ -8,10 +8,16 @@ function getTitle(dom: Document): string | null {
 }
 
 function parse(dom: Document): string | null {
-    let selectedLyrics: string = (dom.querySelector("[class^='Lyrics-sc-']") as HTMLElement).innerHTML;
+    let elements: NodeListOf<Element> = dom.querySelectorAll("[class^='Lyrics-sc-']");
+    let selectedLyrics = "";
+    for (let i = 0; i < elements.length; i++) {
+        selectedLyrics += elements[i].innerHTML;
+        if (i !== elements.length - 1) {
+            selectedLyrics += "\n";
+        }
+    }
 
     let sanitizedLyrics = selectedLyrics.replace(/<(?!br\s*\/?)[^>]+>/gi, "");
-    
     let lyrics = sanitizedLyrics.replace(/<br\s*\/?>/gi, "\n");
 
     // Genius is sometimes changing the HTML.
